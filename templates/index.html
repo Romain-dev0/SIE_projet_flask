@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Servers</title>
+</head>
+<body>
+    <h1>Game Servers List</h1>
+    <ul>
+        {% for server in servers %}
+            <li>{{ server['name'] }} ({{ server['ip_addr'] }}) - Online: {{ server['is_online'] }} - Players: {{ server['num_player'] }}
+                <form action="{{ url_for('delete_server', server_id=server['id']) }}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
